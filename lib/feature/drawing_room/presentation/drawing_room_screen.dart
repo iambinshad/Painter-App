@@ -10,7 +10,7 @@ class DrawingRoomScreen extends StatefulWidget {
 }
 
 class _DrawingRoomScreenState extends State<DrawingRoomScreen> {
-  @override
+
   var avaiableColor = [
     Colors.black,
     Colors.red,
@@ -24,8 +24,8 @@ class _DrawingRoomScreenState extends State<DrawingRoomScreen> {
   var drawingPoint = <DrawingPoint>[];
   var selectedColor = Colors.black;
   var selectedWidth = 2.0;
+  var sliderColor = Colors.black;
 
-  @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
@@ -84,6 +84,7 @@ class _DrawingRoomScreenState extends State<DrawingRoomScreen> {
                     onTap: () {
                       setState(() {
                         selectedColor = avaiableColor[index];
+                        sliderColor = selectedColor;
                       });
                     },
                     child: Container(
@@ -108,6 +109,7 @@ class _DrawingRoomScreenState extends State<DrawingRoomScreen> {
             child: RotatedBox(
               quarterTurns: 3,
               child: Slider(
+                activeColor:sliderColor ,
                 value: selectedWidth,
                 min: 1,
                 max: 20,
